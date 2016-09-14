@@ -2,7 +2,6 @@
 
 import json    # For debugging json prints.
 import fresh_tomatoes
-import requests
 import tmdbsimple as tmdb
 
 tmdb.API_KEY = '65992653354d8113805cb2a26a54c933'
@@ -34,8 +33,9 @@ class Movie:
             if(videos['type'] == "Trailer" and videos['site'] == "YouTube"):
                 youtube_key = videos['key']
                 break
+        
         #print json.dumps(s.__dict__) 
-        print youtube_key 
+        
         if(response):
             return Movie(s.title, s.poster_path, youtube_key)
         else:
